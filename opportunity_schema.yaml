@@ -1,0 +1,30 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: MyCS opportunity
+type: object
+required: [title, organization, url, source, opportunity_type, required_skills]
+additionalProperties: false
+properties:
+  title: {type: string, minLength: 1}
+  organization: {type: string, minLength: 1}
+  url: {type: string, format: uri}
+  source: {type: string, minLength: 1}
+  opportunity_type: {type: string, minLength: 1}
+  location: {type: [string, "null"]}
+  work_mode: {enum: [onsite, hybrid, remote, unknown, null]}
+  start_date: {type: [string, "null"], format: date}
+  end_date: {type: [string, "null"], format: date}
+  duration_months: {type: [integer, "null"], minimum: 1}
+  deadline: {type: [string, "null"], format: date}
+  education_level: {type: [string, "null"]}
+  funding: {type: [string, "null"]}
+  domains: {type: array, items: {type: string}}
+  required_skills:
+    type: array
+    items:
+      type: object
+      required: [name]
+      additionalProperties: false
+      properties:
+        name: {type: string, minLength: 1}
+        importance: {enum: [required, preferred]}
+  description: {type: [string, "null"]}
