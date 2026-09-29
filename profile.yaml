@@ -1,0 +1,207 @@
+profile:
+  id: "user_001"
+
+  identity:
+    first_name: "Mohamed"
+    last_name: "Conseiga"
+    country: "Burkina Faso"
+    city: "Ouagadougou"
+
+  education:
+    current:
+      institution: "Institut Supérieur des Sciences de la Population"
+      university: "Université Joseph Ki-Zerbo"
+      program: "Élève ingénieur Statisticien Économiste"
+      specialization: "Mathématiques"
+      level: "École d'ingénieur"
+      status: "En cours"
+    previous:
+      - institution: "École Polytechnique de Ouagadougou"
+        program: "Classes Préparatoires aux Grandes Écoles"
+        track: "Scientifique"
+        years: ["PCSI", "PC"]
+        status: "Terminée"
+
+  academic_profile:
+    fields: ["Statistiques", "Mathématiques", "Économie", "Économétrie", "Data Science", "Big Data"]
+    strengths: ["Mathématiques", "Statistiques", "Analyse de données", "Modélisation"]
+
+  skills:
+    programming:
+      - {name: "Python", level: "bon", level_score: 3, status: "active"}
+      - {name: "R", level: "intermédiaire", level_score: 2, status: "active"}
+      - {name: "Stata", level: "débutant", level_score: 1, status: "not_started"}
+      - {name: "Django", level: "débutant", level_score: 1, status: "learning"}
+      - {name: "Flutter", level: "débutant", level_score: 1, status: "learning"}
+    data:
+      - {name: "Statistiques", level: "bon", level_score: 3, status: "active"}
+      - {name: "Analyse de données", level: "bon", level_score: 3, status: "active"}
+      - {name: "Économétrie", level: "intermédiaire", level_score: 2, status: "active"}
+      - {name: "Excel", level: "intermédiaire", level_score: 2, status: "active"}
+    engineering:
+      - {name: "Merise", level: "intermédiaire", level_score: 2, status: "active"}
+      - {name: "Modélisation de bases de données", level: "intermédiaire", level_score: 2, status: "active"}
+      - {name: "Microsoft Access", level: "intermédiaire", level_score: 2, status: "active"}
+    artificial_intelligence:
+      - {name: "Machine Learning", level: "en développement", level_score: 1, status: "learning"}
+      - {name: "Intelligence Artificielle", level: "en développement", level_score: 1, status: "learning"}
+      - {name: "Computer Vision", level: "débutant", level_score: 0, status: "planned"}
+    tools:
+      - {name: "Git", level: "intermédiaire", level_score: 2, status: "active"}
+      - {name: "GitHub", level: "intermédiaire", level_score: 2, status: "active"}
+
+  experience:
+    - title: "Stage d'immersion"
+      organization: "Institut National de la Statistique et de la Démographie"
+      acronym: "INSD"
+      country: "Burkina Faso"
+      city: "Ouagadougou"
+      type: "Internship"
+      domain: ["Statistiques", "Gestion de données", "Développement logiciel"]
+      activities:
+        - "Analyse du système existant"
+        - "Conception MCD et MLD avec Merise"
+        - "Travail avec Microsoft Access"
+      technologies: ["Microsoft Access", "Merise", "Bases de données"]
+
+  projects:
+    - name: "R-Mind"
+      type: "Robotics / AI"
+      status: "active"
+      description: "Projet de rover robotique destiné à la détection et à l'identification de risques liés aux mines et engins explosifs."
+      domains: ["Robotique", "Intelligence Artificielle", "Computer Vision", "IoT", "Systèmes autonomes"]
+      technologies: ["Arduino", "ESP32", "ESP32-CAM", "STM32", "Python"]
+      future_technologies: ["LiDAR", "Computer Vision", "Machine Learning", "GPS", "IMU"]
+
+    - name: "MyCS"
+      type: "Career Intelligence"
+      status: "development"
+      description: "Assistant personnel de veille et d'intelligence de carrière capable de rechercher des opportunités, analyser leur adéquation avec le profil et identifier les compétences à développer."
+      domains: ["Data Science", "Intelligence Artificielle", "Automatisation", "Web", "NLP"]
+      technologies: ["Python", "Django", "PostgreSQL", "Web scraping", "APIs"]
+
+    - name: "NeoForma"
+      type: "Startup / SaaS"
+      status: "active"
+      description: "Solution numérique destinée à accompagner les travailleurs informels dans la gestion de leur activité."
+      domains: ["FinTech", "SaaS", "Data", "Entrepreneuriat"]
+
+  interests:
+    technical: ["Data Science", "Machine Learning", "Artificial Intelligence", "Computer Vision", "Robotics", "Autonomous Systems", "Data Engineering", "Statistics", "Mathematical Modeling"]
+    scientific: ["Recherche", "Modélisation", "Intelligence Artificielle appliquée", "Robotique autonome"]
+    long_term: ["Robotics", "Autonomous Vehicles", "Aerospace Robotics", "AI for Robotics"]
+
+  target_roles:
+    preferred:
+      - {role: "Data Scientist", priority: 5}
+      - {role: "Machine Learning Engineer", priority: 5}
+      - {role: "AI Engineer", priority: 5}
+      - {role: "Research Intern", priority: 5}
+      - {role: "Research Assistant", priority: 5}
+      - {role: "Computer Vision Engineer", priority: 5}
+      - {role: "Robotics Engineer", priority: 5}
+      - {role: "Autonomous Systems Engineer", priority: 5}
+    strong:
+      - {role: "Data Engineer", priority: 4}
+      - {role: "Statistician", priority: 4}
+      - {role: "Statistician-Economist", priority: 4}
+      - {role: "Econometrician", priority: 4}
+      - {role: "Mathematical Modeler", priority: 4}
+    acceptable:
+      - {role: "Data Analyst", priority: 3}
+      - {role: "Software Developer", priority: 2}
+
+  career_trajectory:
+    current: ["Statistics", "Mathematics", "Economics"]
+    next: ["Data Science", "Machine Learning"]
+    medium_term: ["Artificial Intelligence", "Computer Vision", "Autonomous Systems"]
+    long_term: ["Robotics", "Aerospace Robotics", "Autonomous Vehicles"]
+    objective: "Construire progressivement un profil de Data Scientist / AI Engineer capable d'appliquer l'intelligence artificielle, les statistiques, la vision par ordinateur et les systèmes autonomes à la robotique et, à long terme, aux systèmes aérospatiaux."
+
+  internship_preferences:
+    target_period:
+      start: "2027-07-01"
+      end: "2027-09-30"
+      duration_months: 3
+    geographic_priority:
+      tier_1: ["Burkina Faso"]
+      tier_2: ["Afrique de l'Ouest"]
+      tier_3: ["Europe"]
+      tier_4: ["Etats-Unis"]
+      preferred_country: ["Allemagne"]
+      other: ["International"]
+    work_modes: ["onsite", "hybrid", "remote"]
+    funding:
+      strongly_preferred: ["fully_funded", "stipend", "salary", "scholarship", "accommodation", "travel_support", "mobility_support"]
+      acceptable: ["partially_funded", "unfunded"]
+    opportunity_types:
+      - "Internship"
+      - "Research Internship"
+      - "Research Assistant"
+      - "Summer Research Program"
+      - "Fellowship"
+      - "Student Research Program"
+      - "Engineering Internship"
+      - "AI Internship"
+      - "Data Science Internship"
+      - "Robotics Internship"
+
+  opportunity_preferences:
+    highly_valued: ["AI", "Machine Learning", "Computer Vision", "Robotics", "Data Science", "Research", "Autonomous Systems", "Statistics", "Mathematical Modeling"]
+    career_value:
+      research: 5
+      ai_ml: 5
+      robotics: 5
+      computer_vision: 5
+      data_science: 5
+      statistics: 4
+      data_engineering: 4
+      software_development: 2
+    avoid_or_deprioritize:
+      - "Opportunités sans contenu technique significatif"
+      - "Postes purement administratifs"
+      - "Rôles sans lien avec les données, statistiques, IA, recherche ou ingénierie"
+
+  learning_priorities:
+    high: ["Machine Learning", "Deep Learning", "PyTorch", "Computer Vision", "SQL", "Data Engineering", "Advanced Python"]
+    medium: ["Docker", "Linux", "Cloud", "APIs", "MLOps", "Git advanced workflows"]
+    future: ["ROS2", "Reinforcement Learning", "SLAM", "Robotics", "Autonomous Navigation", "Embedded AI"]
+
+  languages:
+    - {name: "Français", level: "courant"}
+    - {name: "Anglais", level: "en développement", objective: "professionnel et scientifique"}
+
+  mobility:
+    willing_to_travel: true
+    willing_to_relocate: true
+    international_mobility: true
+    priority: "high"
+
+  availability:
+    internship:
+      start: "2027-07-01"
+      end: "2027-09-30"
+      duration_months: 3
+
+  career_preferences:
+    wants:
+      - "Développer des compétences techniques"
+      - "Travailler sur des projets concrets"
+      - "Participer à des projets de recherche"
+      - "Construire un profil international"
+      - "Développer son réseau professionnel"
+      - "Travailler sur des problèmes complexes"
+      - "Appliquer les mathématiques et statistiques à l'IA"
+      - "Relier Data Science et Robotique"
+    long_term_goal: "Devenir un ingénieur spécialisé en Data Science, Intelligence Artificielle et systèmes autonomes, avec une capacité à travailler sur des systèmes robotiques et aérospatiaux."
+
+  career_scout:
+    search_frequency: "weekly"
+    notify_new_high_match: true
+    minimum_match_score: 60
+    minimum_trajectory_score: 60
+    prioritize_deadlines: true
+    detect_funding: true
+    detect_skill_gaps: true
+    suggest_learning_resources: true
+    user_approval_required_for_applications: true

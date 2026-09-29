@@ -2,6 +2,8 @@
 
 Assistant personnel de veille et de stratégie de carrière : recherche d'opportunités de stage, analyse de correspondance avec mon profil, et identification des compétences à renforcer.
 
+L'objectif n'est pas simplement de trouver des offres correspondant à mes compétences actuelles , mais également d'identifier les opportunités susceptibles de contribuer à ma **trajectoire professionnelle à long terme**.
+
 > Statut : en construction : V1 (Scout)
 
 ## Pourquoi ce projet
@@ -51,17 +53,33 @@ Résumé périodique (les meilleures offres + lacunes récurrentes)
 ## Structure du dépôt
 
 ```
-careerscout/
-├── profile.yaml          # profil personnel : formation, compétences, domaines, contraintes
+MyCS/
+│
+├── profile.yaml              # Tes données personnelles
+├── profile_schema.yaml       # Contrat/validation de profile.yaml
+│
 ├── src/
-│   ├── search.py         # génération des requêtes + recherche web
-│   ├── extract.py        # extraction structurée d'une offre
-│   ├── match.py          # comparaison profil / offre
-│   └── store.py          # stockage et déduplication
+│   ├── __init__.py
+│   ├── config.py             # Configuration générale
+│   ├── validate.py           # Validation du profil
+│   ├── search.py             # Génération des requêtes + recherche
+│   ├── extract.py            # Extraction structurée d'une offre
+│   ├── match.py              # Profil ↔ opportunité
+│   └── store.py              # SQLite + stockage + déduplication
+│
 ├── data/
-│   └── opportunities.db  # base locale (SQLite)
+│   └── opportunities.db      # Base locale SQLite
+│
 ├── docs/
-│   └── cadrage.md        # document de cadrage du projet
+│   └── MyCS_Cahier_des_charges_technique_V1.pdf            # Cadrage du projet
+│
+├── tests/
+│   ├── test_validate.py
+│   ├── test_match.py
+│   └── test_store.py
+│
+├── .gitignore
+├── requirements.txt
 └── README.md
 ```
 
@@ -74,6 +92,111 @@ Le profil est décrit dans `profile.yaml` et sert de base à toutes les requête
 - pays et périodes de disponibilité ;
 - contraintes (rémunération, mobilité, langues).
 
+### `profile_schema.yaml`
+
+Définit la structure que `profile.yaml` doit respecter.
+
+Il permet notamment de vérifier :
+
+* les champs obligatoires ;
+* les types de données ;
+* les valeurs autorisées ;
+* les plages de valeurs ;
+* la structure générale du profil.
+
+Il constitue le **contrat de données** de CareerScout.
+
+### `src/validate.py`
+
+Valide `profile.yaml` à partir de `profile_schema.yaml`.
+
+Objectif :
+
+```text
+profile.yaml
+     ↓
+Validation
+     ↓
+✓ Profil valide
+```
+
+ou :
+
+```text
+profile.yaml
+     ↓
+Validation
+     ↓
+✗ Erreurs de structure
+```
+
+### `src/search.py`
+
+Responsable de la génération de requêtes et de la recherche d'opportunités.
+
+Les recherches doivent être générées à partir du profil plutôt que d'être entièrement codées en dur.
+
+### `src/extract.py`
+
+Transforme une page ou une source d'opportunité en données structurées.
+
+Exemple :
+
+```text
+Page Web
+   ↓
+Extraction
+   ↓
+Opportunity
+```
+
+Informations potentielles :
+
+* titre ;
+* organisation ;
+* localisation ;
+* type ;
+* période ;
+* durée ;
+* deadline ;
+* niveau académique ;
+* compétences ;
+* financement ;
+* mode de travail ;
+* URL ;
+* description.
+
+Une information absente ou incertaine ne doit pas être inventée.
+
+### `src/match.py`
+
+Compare une opportunité au profil.
+
+Le moteur doit progressivement distinguer :
+
+* **Match Score** : adéquation avec les compétences actuelles ;
+* **Trajectory Score** : contribution à la trajectoire professionnelle ;
+* **Constraint Fit** : compatibilité avec les contraintes ;
+* **Skill Gaps** : compétences manquantes.
+
+### `src/store.py`
+
+Responsable du stockage local des opportunités dans SQLite.
+
+Il gère notamment :
+
+* insertion ;
+* récupération ;
+* mise à jour ;
+* déduplication ;
+* identification des opportunités déjà analysées.
+
+### `data/opportunities.db`
+
+Base de données SQLite locale contenant les opportunités collectées et leurs informations associées.
+
+La base est générée localement et ne doit pas nécessairement être versionnée dans Git.
+
 ## Feuille de route
 
 - [x] document de cadrage
@@ -83,6 +206,21 @@ Le profil est décrit dans `profile.yaml` et sert de base à toutes les requête
 - [ ] Premier résumé automatique
 - [ ] V2 : historique des candidatures, recommandations de formation
 - [ ] V3 : préparation de candidature (avec validation humaine à chaque étape)
+
+## Exécuter la V1
+
+Créer un environnement virtuel, installer les dépendances, puis valider le profil :
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r requirements.txt
+.\.venv\Scripts\python -m src.validate
+.\.venv\Scripts\python -m pytest -q
+```
+
+Les modules V1 sont volontairement déterministes : `src.search.generate_queries()` produit les requêtes,
+`src.extract.normalize_opportunity()` normalise une offre, `src.match.evaluate_opportunity()` retourne les
+trois scores et les lacunes, et `src.store.OpportunityStore` persiste les offres dans SQLite.
 
 ## Notes de décision
 
